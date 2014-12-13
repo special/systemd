@@ -20,6 +20,7 @@ BuildRequires:  gperf
 BuildRequires:  xz-devel
 BuildRequires:  kmod-devel >= 15
 BuildRequires:  fdupes
+BuildRequires:  pkgconfig(libselinux)
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 Requires:       dbus
@@ -174,7 +175,8 @@ glib-based applications using libudev functionality.
   --with-firmware-path=/lib/firmware/updates:/lib/firmware:/system/etc/firmware:/etc/firmware:/vendor/firmware:/firmware/image \
   --disable-manpages \
   --disable-python-devel \
-  --enable-tests
+  --enable-tests \
+  --enable-selinux
 
 make %{?_smp_mflags}
 
