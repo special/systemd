@@ -21,6 +21,7 @@ BuildRequires:  xz-devel
 BuildRequires:  kmod-devel >= 15
 BuildRequires:  fdupes
 BuildRequires:  pkgconfig(libselinux)
+BuildRequires:  pkgconfig(audit)
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 Requires:       dbus
@@ -176,7 +177,8 @@ glib-based applications using libudev functionality.
   --disable-manpages \
   --disable-python-devel \
   --enable-tests \
-  --enable-selinux
+  --enable-selinux \
+  --enable-audit
 
 make %{?_smp_mflags}
 
