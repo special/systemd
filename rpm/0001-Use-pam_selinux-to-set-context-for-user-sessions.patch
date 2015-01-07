@@ -1,0 +1,27 @@
+From ee025e4afa844327d7d1380c5886ffd7c916b39c Mon Sep 17 00:00:00 2001
+From: John Brooks <john.brooks@jolla.com>
+Date: Tue, 6 Jan 2015 19:30:30 -0700
+Subject: [PATCH] Use pam_selinux to set context for user sessions
+
+---
+ src/login/systemd-user | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/login/systemd-user b/src/login/systemd-user
+index 7b57dbf..6e8af46 100644
+--- a/src/login/systemd-user
++++ b/src/login/systemd-user
+@@ -3,6 +3,10 @@
+ # Used by systemd when launching systemd user instances.
+ 
+ account include system-auth
++# pam_selinux.so close should be the first session rule
++session required pam_selinux.so close
+ session include system-auth
++# pam_selinux.so open should only be followed by sessions to be executed in the user context
++session required pam_selinux.so open nottys
+ auth required pam_deny.so
+ password required pam_deny.so
+-- 
+1.9.3
+
