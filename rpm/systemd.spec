@@ -13,6 +13,7 @@ BuildRequires:  libxslt
 BuildRequires:  libacl-devel
 BuildRequires:  glib2-devel
 BuildRequires:  libgcrypt-devel
+BuildRequires:  pkgconfig(libcryptsetup) >= 1.6.0
 BuildRequires:  pkgconfig(usbutils) >= 0.82
 BuildRequires:  pkgconfig(blkid) >= 2.20
 BuildRequires:  intltool >= 0.40.0
